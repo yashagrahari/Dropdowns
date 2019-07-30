@@ -1,0 +1,181 @@
+.form-control{
+    width: 250px !important; 
+    
+    
+}
+
+.container{
+    padding: 30px;
+    background-color: rgb(179, 179, 179, 0.4);
+    box-shadow: 0 4px 8px 0 rgb(0,0,0,0.2), 0px 6px 20px 0 rgb(0, 0, 0, 0.19);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 60%;
+    height: auto;
+    border-radius: 60px;
+}
+
+.outer_div{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, rgb(255, 230, 255), lightblue )  ;   
+}
+
+@media only screen and (max-width:1216px){
+    img{
+        margin-top: 30px;
+        width: 320px;
+        height: 320px;
+    }
+}
+
+@media only screen and (max-width:1118px){
+    img{
+        width: 290px;
+        height: 290px;
+    }
+}
+
+@media only screen and (max-width:1033px){
+    img{
+        margin-top: 50px;
+        width: 260px;
+        height: 260px;
+    }
+    .form-control{
+        width: auto;
+    }
+}
+
+@media only screen and (max-width:931px){
+    img{
+        margin-top: 70px;
+        width: 230px;
+        height: 230px;
+    }
+    .form-control{
+        width: auto;
+    }
+}
+
+@media only screen and (max-width:896px){
+    img{
+        margin-top: 80px;
+        width: 210px;
+        height: 210px;
+    }
+    .form-control{
+        width: auto !important;
+    }
+}
+
+@media only screen and (max-width:766px){
+    img{
+        padding: 0px;
+        width: 250px;
+        height: 250px;
+        margin: auto;
+    }
+    .form-control{
+        width: 280px !important;
+    }
+
+    
+}
+@media only screen and (max-width:526px){
+    img{
+        padding: 0px;
+        width: 250px;
+        height: 250px;
+        margin: auto;
+    }
+    .form-control{
+        width: 240px !important;
+    }
+
+    
+}
+@media only screen and (max-width:485px){
+    img{
+        padding: 0px;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+    }
+    .form-control{
+        width: auto !important;
+    }
+    
+}
+
+@media only screen and (max-width:403px){
+    img{
+        padding: 0px;
+        width: 150px;
+        height: 150px;
+        margin: auto;
+    }
+    .form-control{
+        width: auto !important;
+    }
+
+    
+}
+
+@media only screen and (max-width:314px){
+    img{
+        padding: 0px;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+    }
+    .form-control{
+        width: auto !important;
+    }
+
+    
+}
+
+@media only screen and (max-width:299px){
+    img{
+        padding: 0px;
+        width: 90px;
+        height: 90px;
+        }
+    .form-control{
+        width: auto !important;
+    }
+
+    
+}
+
+@media only screen and (max-width:287px){
+    img{
+        padding: 0px;
+        width: 90px;
+        height: 90px;
+        }
+    .form-control{
+        padding: 0px;
+        width: auto !important;
+        margin: 0px;
+    }
+
+    
+}
+@media only screen and (max-width:261px){
+    img{
+        padding: 0px;
+        width: 90px;
+        height: 90px;
+        }
+    .form-control{
+        padding: 0px;
+        width: 90px !important;
+        margin: 0px;
+    }
+
+    
+}

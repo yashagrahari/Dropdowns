@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>MY WEBPAGE</title>    
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="drop.css" type = "text/css">
+
+   
+
+
+</head>
+
+<body onload="course();">
+<div class="outer_div">
+<div class="container">
+
+
+    <div class="row">
+        
+
+    <div class="col-md-6">
+
+            <img src="img.png" alt="Myimg" height="350px" width="350px"><br><br>
+
+    </div>
+
+    <div class="col-md-6" align="center" style="text-align: left;">
+        Course: 
+ <select id="course1" name="cor" onchange="branch();" class="form-control" align="center">
+    <option selected disabled hidden>Choose here</option>
+    <!-- <option value="btech">btech</option>
+    <option value="Mtech">mtech</option>
+    <option value="bpharma">bpharma</option>
+    <option value="mpharma">mpharma</option> -->
+
+</select><br><br><br>
+
+Branch: 
+             
+    <select id="bran" name="brn" onchange="sem();" class="form-control">
+        <option selected disabled hidden>Choose here</option>
+    </select><br><br><br>
+
+    Semster: 
+
+    <select id="semester" name="brn" class="form-control">
+        <option selected disabled hidden>Choose here</option>
+    </select><br><br><br>
+             
+    <script>
+
+    function course(){
+                    
+        var y,m=0;
+                    
+        var xmlhttp = new XMLHttpRequest();
+                            
+        var data;   
+        
+        xmlhttp.onreadystatechange = function() {
+        
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        
+            y = JSON.parse(xmlhttp.response);
+            m=1;
+            } 
+                    
+            if(m==1)
+            {
+                next3(y);
+            }
+                    
+        
+        }
+        
+                    
+        xmlhttp.open("GET", "http://127.0.0.1:8000/tough/", true);
+        xmlhttp.send();
+        
+                    
+    }
+                
+                             
+    function next3(a){
+                                         
+        course1.innerHTML="<option selected disabled hidden>Choose here</option>";
+        
+        var i;
+                    
+        for(i=0; i<a.length; i++){
+                     
+        var opt = document.createElement('option');
+        opt.appendChild( document.createTextNode(a[i].co) );
+        opt.value = a[i].co;
+        course1.appendChild(opt);
+        
+        }
+    }
+
+
+
+             
+        function branch(){
+                    
+            var x= document.getElementById("course1").value;
+            var y,m=0;
+                        
+            var params = "course="+x;
+            var url="http://127.0.0.1:8000/tough/";
+            
+            var xmlhttp = new XMLHttpRequest();
+                    
+            var data;   
+
+            xmlhttp.onreadystatechange = function() {
+
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            y = JSON.parse(xmlhttp.response);
+            m=1;
+                } 
+            
+            if(m==1)
+            {
+                next1(y);
+            }
+            
+
+        }
+
+            
+
+
+        xmlhttp.open("GET", url+"?"+params , true);
+        xmlhttp.send();
+
+
+            
+        }
+        
+                     
+        function next1(a){
+                                 
+            bran.innerHTML="<option selected disabled hidden>Choose here</option>";
+
+            var i;
+            id1=a[0].link1__id;
+
+            
+            for(i=0; i<a.length; i++){
+             
+            var opt = document.createElement('option');
+            opt.appendChild( document.createTextNode(a[i].br) );
+            opt.value = a[i].br;
+            bran.appendChild(opt);
+
+            }
+        }
+
+        function sem(){
+            var x1= document.getElementById("bran").value;
+            var y1,m1=0;
+                        
+            var params1 = "br="+x1+"&id="+id1;
+            var url1="http://127.0.0.1:8000/tough/";
+            
+            var xmlhttp = new XMLHttpRequest();   
+
+            xmlhttp.onreadystatechange = function() {
+
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            y1 = JSON.parse(xmlhttp.response);
+            m1=1;
+            
+            } 
+            
+            if(m1==1)
+            {
+                next2(y1);
+            }
+            
+
+        }
+
+            
+
+
+        xmlhttp.open("GET", url1+"?"+params1 , true);
+        xmlhttp.send();
+
+             
+             
+        }
+
+
+        function next2(a){
+                                 
+            semester.innerHTML="<option selected disabled hidden>Choose here</option>";
+                     
+            var i;
+                                 
+            for(i=0; i<a.length; i++){
+                                  
+            var opt = document.createElement('option');
+            opt.appendChild( document.createTextNode(a[i].sems) );
+            opt.value = a[i].sems;
+            semester.appendChild(opt);
+                     
+        }
+        
+        }
+             
+        
+             
+             
+        
+             
+            
+             
+    </script> 
+    </div>
+    </div>  
+    </div>
+</div>
+</body>
+
+</html>
