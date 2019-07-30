@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from drop.models import course,branch,sem,section
+from drop.models import course,branch,sem
 from django.shortcuts import render
 from django.http import Http404
 from rest_framework.views import APIView

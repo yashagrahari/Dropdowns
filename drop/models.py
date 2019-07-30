@@ -14,9 +14,6 @@ class sem(models.Model):
 	link2=models.ForeignKey(branch, on_delete=models.CASCADE)
 	sems=models.CharField(max_length=100)
 
-class section(models.Model):
-	link3=models.ForeignKey(sem, on_delete=models.CASCADE)
-	sec=models.CharField(max_length=100)
 		
 
 		
